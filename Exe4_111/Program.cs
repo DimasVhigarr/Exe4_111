@@ -70,6 +70,16 @@ namespace Exe4_111
                 Console.WriteLine("3. Display ");
                 Console.WriteLine("4. Exit ");
                 Console.WriteLine("\nEnter Your Choice: ");
+                string sInput = Console.ReadLine();
+                char ch = Convert.ToChar(sInput == "" ? "0" : sInput);
+                switch(ch)
+                {
+                    case '1':
+                        Console.WriteLine("\nEnter a number: ");
+                        int num = Convert.ToInt32(Console.ReadLine());
+                        s.push(num);
+                        break;
+                }
             }
         }
     }
