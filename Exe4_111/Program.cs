@@ -35,6 +35,15 @@ namespace Exe4_111
             Console.WriteLine("\nThe popped element is: " + top.info);
             top = top.next;
         }
+        public void push(int element)
+        {
+            Node fresh;
+            fresh = new Node(element, null);
+
+            fresh.next = top;
+            top = fresh;
+            Console.WriteLine("\n" + element + " pushed. ");
+        }
         
     }
 }
