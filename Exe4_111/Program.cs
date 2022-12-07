@@ -1,66 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Exe4_111
 {
-    class Node
+    
+    class Stack
     {
-        public int info;
-        public Node next;
-        public Node(int i, Node n)
+        private string[] dim;
+        private int top;
+        private int max;
+        
+        public Stack(int size)
         {
-            info = i;
-            next = n;
+            dim = new string[size];
+            top = -1;
+            max = size;
         }
-    }
-    class Stacks
-    {
-        Node top;
-        public Stacks()
-        {
-            top = null;
-        }
-        bool empty()
-        {
-            if (top == null)
-                return (true);
-            else
-                return (false);
-        }
+       
         public void pop()
         {
-            Console.WriteLine("\nThe popped element is: " + top.info);
-            top = top.next;
+            if (top == -1)
+            {
+                Console.WriteLine("Stack Underflow");
+                return ;
+            }
+            else
+            {
+                Console.WriteLine("Poped element is: " + dim[top]);
+                top--;
+                return;
+            }
         }
-        public void push(int element)
+        public void push()
         {
-            Node fresh;
-            fresh = new Node(element, null);
-
-            fresh.next = top;
-            top = fresh;
-            Console.WriteLine("\n" + element + " pushed. ");
+            if (top == max - 1)
+            {
+                Console.WriteLine("Stack Overflow");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Push element is: ");
+                dim[++top] = Console.ReadLine();
+            }
         }
         public void display()
         {
-            Node tmp;
-            if (empty())
-                Console.WriteLine("\nStack Empty");
-            else
+           if(top == -1)
             {
-                for (tmp = top; tmp != null; tmp = tmp.next)
+                Console.WriteLine("Stack is Empty");
+                return;
+            }
+           else
+            {
+                for (int i = 0; i <= top; i++)
                 {
-                    Console.WriteLine(tmp.info);
+                    Console.WriteLine(dim[i]);
                 }
-                Console.WriteLine();
             }
         }
         static void Main(string[] args)
         {
-            Stacks s = new Stacks();
+            Stack s = new Stack(29);
             while (true)
             {
                 Console.WriteLine();
@@ -75,16 +80,9 @@ namespace Exe4_111
                 switch(ch)
                 {
                     case '1':
-                        Console.WriteLine("\nEnter a number: ");
-                        int num = Convert.ToInt32(Console.ReadLine());
-                        s.push(num);
+                        s.push();
                         break;
                     case '2':
-                        if (s.empty())
-                        {
-                            Console.WriteLine("\nStack Empty");
-                            break;
-                        }
                         s.pop();
                         break;
                     case '3':
