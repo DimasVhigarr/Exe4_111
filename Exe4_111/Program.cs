@@ -30,6 +30,11 @@ namespace Exe4_111
             else
                 return (false);
         }
+        public void pop()
+        {
+            Console.WriteLine("\nThe popped element is: " + top.info);
+            top = top.next;
+        }
         
     }
 }
