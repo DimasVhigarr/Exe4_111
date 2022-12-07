@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exe4_111
 {
-   class Node
+    class Node
     {
         public int info;
         public Node next;
@@ -14,6 +14,14 @@ namespace Exe4_111
         {
             info = i;
             next = n;
+        }
+    }
+    class Stacks
+    {
+        Node top;
+        public Stacks()
+        {
+            top = null;
         }
     }
 }
