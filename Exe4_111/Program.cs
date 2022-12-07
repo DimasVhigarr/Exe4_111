@@ -44,6 +44,19 @@ namespace Exe4_111
             top = fresh;
             Console.WriteLine("\n" + element + " pushed. ");
         }
-        
+        public void display()
+        {
+            Node tmp;
+            if (empty())
+                Console.WriteLine("\nStack Empty");
+            else
+            {
+                for (tmp = top; tmp != null; tmp = tmp.next)
+                {
+                    Console.WriteLine(tmp.info);
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
